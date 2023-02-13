@@ -1,7 +1,7 @@
 package JavaExercise;
 import java.util.*;
 
-public class funciones {
+public class Funciones {
      // Ejercicio a
      public static void showNumbers() {
         int[] myNums = new int[5]; // Creamos una matriz de 5 números
