@@ -1,9 +1,10 @@
 package JavaExercise;
+
 import java.util.*;
 
 public class Funciones {
-     // Ejercicio a
-     public static void showNumbers() {
+    // Ejercicio a
+    public static void showNumbers() {
         int[] myNums = new int[5]; // Creamos una matriz de 5 números
         Scanner scan = new Scanner(System.in);
         System.out.println("Write five numbers: "); // pedimos el número que deseemos insertar
@@ -54,8 +55,8 @@ public class Funciones {
         int myPosNums = 0; // Creamos una matriz de 5 números para colocar los posivos
         int myNegNums = 0; // Creamos una matriz de 5 números para colocar los negativos
         int myZeros = 0; // Creamos una matriz de 5 números para colocar los 0
-        int countPos = 1;
-        int countNeg = 1;
+        int countPos = 0;
+        int countNeg = 0;
 
         System.out.println("Write five numbers: "); // pedimos el número que deseemos insertar
 
@@ -67,19 +68,29 @@ public class Funciones {
                 myPosNums = myPosNums + Nums;
                 countPos++;
             }
-            
+
             else if (Nums < 0) { // Si los números son negativos
                 myNegNums = myNegNums + Nums;
                 countNeg++;
             }
-            
+
             else { // Si hay ceros, sumamos 1
                 myZeros++;
             }
         }
-        
-        System.out.println("The average of the positive numbers is: " + myPosNums / countPos);
-        System.out.println("The average of the negative numbers is: " + myNegNums / countNeg);
+        try {
+            System.out.println("The average of the positive numbers is: " + myPosNums / countPos);
+
+        } catch (ArithmeticException e) {
+            System.out.println("There's no positive numbers");
+        }
+
+        try {
+            System.out.println("The average of the negative numbers is: " + myNegNums / countNeg);
+
+        } catch (Exception e) {
+            System.out.println("There's no negative numbers");
+        }
         System.out.println("The amount of zeros are: " + myZeros);
     }
 
@@ -152,7 +163,7 @@ public class Funciones {
         System.out.print("Your ASCII characters are: ");
 
         for (int i = 0; i < text.length(); i++) {
-            
+
             char ch = text.charAt(i);
             int ascii = ch;
 
