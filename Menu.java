@@ -3,15 +3,16 @@ package JavaExercise;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class Menu {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        boolean isActive = true;
+public class Menu { 
+    public static void main(String[] args) { //Creamos el método principal 
+        Scanner scan = new Scanner(System.in); //Llamamos al scanner para recoger los inputs
+        boolean isActive = true; //Creamos una variable booleana para marcar la condición del bucle
 
-        while (isActive) {
-            System.out.print("\033[H\033[2J");
+        while (isActive) { //Creamos el bucle
+            System.out.print("\033[H\033[2J"); //Con estos dos system.out limpiamos la terminal en cada inicio del bucle
             System.out.flush();
-            System.out.print(
+
+            System.out.print( //Imprimimos las opciones
                     "1. Choose 5 nums and show them. \n" +
                             "2. Choose 5 nums and show them in reversed order. \n" +
                             "3. Choose 5 nums and show the average of positive nums, of negative nums and the quantity of zeros. \n"
@@ -26,9 +27,9 @@ public class Menu {
                             "10. Exit \n" +
                             "Choose an option: ");
 
-            int opcion = scan.nextInt();
+            int option = scan.nextInt(); //Pedimos al usuario la opción escogida
 
-            switch (opcion) {
+            switch (option) { //Según la opción escogida, llamamos al método de la clase pública "Funciones" que corresponda
                 case 1:
                     Funciones.showNumbers();
                     break;
@@ -61,11 +62,11 @@ public class Menu {
                     isActive = false;
                     break;
 
-                default:
+                default: 
                     System.out.println("Please, choose between 1 and 10.");
             }
 
-            try {
+            try { //Creamos un control de excepciónes para configurar la espera de la terminal
                 TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
